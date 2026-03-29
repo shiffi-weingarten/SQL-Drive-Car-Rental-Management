@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="Docs/לוגו.png" alt="SQL Drive Logo" width="250">
+  <img src="לוגו.png" alt="SQL Drive Logo" width="250">
 
-# SQL Drive - Car Rental Management System 🚗💨
+# SQL Drive - Car Rental Management System 🚗
 **פרויקט גמר במסדי נתונים SQL Server**
 
 מערכת ניהול חכמה ומקיפה לחברת השכרת רכבים, המבוססת על מסד נתונים יחסי (Relational Database). המערכת מספקת פתרון מקצה לקצה: מניהול ציי רכב וסניפים ועד למערכת חישוב עלויות ובונוסים לעובדים.
@@ -11,14 +11,14 @@
 ---
 
 ## 🏗 ארכיטקטורת נתונים (Database Schema)
-[cite_start]המערכת מורכבת מ-8 טבלאות מרכזיות המקושרות ביניהן בקשרי גומלין מורכבים (Foreign Keys)[cite: 4, 34]:
-* [cite_start]**Cars & TypeCar:** ניהול מלא של מלאי הרכבים, דגמים וקטגוריות[cite: 9, 34].
-* [cite_start]**Rentals & RentalsHistory:** מעקב אחר השכרות פעילות וארכיון היסטורי מלא[cite: 9, 37].
-* [cite_start]**Workers & Branches:** ניהול עובדים (כולל מערכת בונוסים) ופריסת סניפים ארצית[cite: 9, 34].
+המערכת מורכבת מ-8 טבלאות מרכזיות המקושרות ביניהן בקשרי גומלין מורכבים (Foreign Keys):
+* [cite_start]**Cars & TypeCar:** ניהול מלא של מלאי הרכבים, דגמים וקטגוריות[cite: 34].
+* [cite_start]**Rentals & RentalsHistory:** מעקב אחר השכרות פעילות וארכיון היסטורי מלא[cite: 34].
+* [cite_start]**Workers & Branches:** ניהול עובדים (כולל מערכת בונוסים) ופריסת סניפים ארצית[cite: 34].
 * [cite_start]**Clients:** מאגר לקוחות הכולל בקרת גיל (מינימום 18)[cite: 9].
 
 <div align="center">
-  <img src="Docs/דיאגרמה טוב.png" alt="Database Diagram" width="100%">
+  <img src="דיאגרמה.png" alt="Database Diagram" width="100%">
 </div>
 
 ---
@@ -31,7 +31,7 @@
 * **`usp_gettopworker`**: כלי BI לשליפת עובדים מצטיינים לפי סניף וגובה הבונוס המצטבר[cite: 14].
 
 ### 🛡 בקרת נתונים ואוטומציה (Triggers & Functions)
-* **מניעת כפל השכרות**: טריגר `trg_Rentals_PreventOverlapInsert` המונע השכרת רכב תפוס בתאריכים חופפים[cite: 23].
+* **מניעת כפל השכרות**: טריגר `trg_Rentals_PreventOverlapInsert` (מסוג `INSTEAD OF INSERT`) המונע השכרת רכב תפוס בתאריכים חופפים[cite: 23].
 * [cite_start]**פונקציית חישוב**: `ufn_GetRentalDurationInDays` לחישוב מדויק של ימי השכרה בתוך שאילתות ופרוצדורות[cite: 25].
 * **אילוצי תקינות**: הגדרת אילוצי `CHECK` לגיל לקוח וערכי `DEFAULT` לבונוס עובד[cite: 9].
 
@@ -42,8 +42,8 @@
 ---
 
 ## 🚀 הוראות הרצה
-1. הריצו את סקריפט `יצירת טבלאות.sql` לבניית הסכימה[cite: 9].
-2. הריצו את `קשרי גומלין.sql` להגדרת המפתחות הזרים[cite: 34].
+1. הריצו את סקריפט `יצירת טבלאות.sql` לבניית הסכימה.
+2. הריצו את `קשרי גומלין.sql` להגדרת המפתחות הזרים.
 3. הריצו את `מילוי טבלאות.sql` להזנת נתוני דמה רלוונטיים.
 4. כעת ניתן להריץ את קבצי הפרוצדורות והשאילתות לשימוש במערכת.
 
